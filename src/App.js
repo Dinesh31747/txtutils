@@ -51,7 +51,7 @@ function App() {
     <Routes>
       {/* Use <Route> instead of <Route path=""> */}
       {/* Set the default route to the home page */}
-      <Route path='/txtutils' element={<HomePage mode = {mode} />} />
+      <Route path='/' element={<HomePage mode = {mode} />} />
       <Route path="/home" element={<TextForm showAlert={showAlert} heading="Try Textils - word counter, character counter, remove extra spaces" mode={mode}/>} />
       <Route path="/about" element={<About mode={mode} />} />
       <Route path='/privacy' element={<PrivacyPolicy mode = {mode}/>}></Route>
