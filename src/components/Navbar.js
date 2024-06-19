@@ -19,6 +19,7 @@ export default function Navbar(props) {
     }
   };
     return (
+        <>
         <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} ${
         isSticky ? 'sticky' : ''}`}  style={{ paddingTop: isSticky ? '20px' : '0' }} /*Adjust padding based on sticky state */>
             <div className="container-fluid">
@@ -44,6 +45,7 @@ export default function Navbar(props) {
                 </div>
             </div>
         </nav>
+        </>
     )
 }
 

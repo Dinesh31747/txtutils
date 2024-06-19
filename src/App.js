@@ -43,7 +43,6 @@ function App() {
   return (
     <>
     <Router>
-    {/* <div id = "bg" style={{width:"95%", height:"95%", padding:'20px'}}> */}
     <div id = "gg">
     <Navbar title="Textils" mode={mode} toggleMode={toggleMode} key={new Date()} />
     <Alert alert={alert}/>
