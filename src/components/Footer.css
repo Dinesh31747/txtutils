@@ -1,0 +1,24 @@
+.footer {
+    background-color: #00000000; /* Adjust background color */
+    padding-bottom: 0px;
+    text-align: center;
+    /* Removed position: fixed; */
+     bottom: 0%; /*Still position at the bottom (optional) */
+    width: 100%;
+    height: auto; /* Adjust height if needed */
+  }
+  .navbar.sticky {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Add any other styles for the sticky state */
+  }
+
+  .form-check-btn {
+    background-color: transparent; /* Remove default button background */
+    border: none; /* Remove default button border */
+    padding: 0; /* Remove default button padding */
+    cursor: pointer; /* Indicate clickability */
+  }

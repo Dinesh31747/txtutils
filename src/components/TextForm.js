@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+// import lightBgVideo from '../Assets/Mesh.mp4';
+// import darkBgVideo from '../Assets/Starfield.mp4';
 
 
 export default function TextForm(props) {
@@ -41,11 +43,15 @@ export default function TextForm(props) {
     // text = "new text"; // Wrong way to change the state
     // setText("new text"); // Correct way to change the state
     return (
-        <>
-        <div className="container" style={{color: props.mode==='dark'?'white':'#042743'}}> 
+        <div style={{width:"100%", height:"800px", paddingTop:50, paddingBottom:95}}>
+        <div className='d-flex flex-column min-vh-100 align-items-center justify-content-center'>
+        {/* <video autoPlay loop muted id = 'video'>
+        <source src={props.mode === 'dark'? darkBgVideo : lightBgVideo} type='video/mp4'/>
+      </video> */}
+        <div className="container" style={{color: props.mode==='dark'?'white':'black'}}> 
             <h1 className='mb-4'>{props.heading}</h1>
             <div className="mb-3"> 
-            <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#13466e':'white', color: props.mode==='dark'?'white':'#042743'}} id="myBox" rows="8"></textarea>
+            <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: 'rgba(255, 255, 255, 0.2)', backdropFilter: 'blur(5px)', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)', color: props.mode==='dark'?'white':'black'}} id="myBox" rows="8"></textarea>
             </div>
             <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to Uppercase</button>
             <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>Convert to Lowercase</button>
@@ -53,13 +59,16 @@ export default function TextForm(props) {
             <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy Text</button>
             <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
         </div>
-        <div className="container my-3" style={{color: props.mode==='dark'?'white':'#042743'}}>
+        <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
             <h2>Your text summary</h2>
             <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
             <p>{0.008 *  text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Minutes read</p>
             <h2>Preview</h2>
             <p>{text.length>0?text:"Nothing to preview!"}</p>
+            <br/>
+            <br/>
         </div>
-        </>
+        </div>
+        </div>
     )
 }

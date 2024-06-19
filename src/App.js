@@ -7,8 +7,12 @@ import Alert from './components/Alert';
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
+import HomePage from './components/HomePage';
+import Footer from './components/Footer';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import Contact from './components/Contact'
 
 function App() {
   const [mode, setMode] = useState('light'); // Whether dark mode is enabled or not
@@ -27,7 +31,7 @@ function App() {
   const toggleMode = ()=>{
     if(mode === 'light'){
       setMode('dark');
-      document.body.style.backgroundColor = '#042743';
+      document.body.style.backgroundColor = '#212121';
       showAlert("Dark mode has been enabled", "success");
     }
     else{
@@ -39,18 +43,25 @@ function App() {
   return (
     <>
     <Router>
-    <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} key={new Date()} />
+    {/* <div id = "bg" style={{width:"95%", height:"95%", padding:'20px'}}> */}
+    <div id = "gg">
+    <Navbar title="Textils" mode={mode} toggleMode={toggleMode} key={new Date()} />
     <Alert alert={alert}/>
-    <div className="container my-3">
+    <div id = "bg" className="container my-3">
     <Routes>
       {/* Use <Route> instead of <Route path=""> */}
-          <Route index element={<TextForm showAlert={showAlert} heading="Try TextUtils - word counter, character counter, remove extra spaces" mode={mode}/>} />
-          <Route path="/about" element={<About mode={mode} />} />
-          <Route path="/" element={<TextForm showAlert={showAlert} heading="Try TextUtils - word counter, character counter, remove extra spaces" mode={mode}/>} />
+      {/* Set the default route to the home page */}
+      <Route path='/txtutils' element={<HomePage mode = {mode} />} />
+      <Route path="/home" element={<TextForm showAlert={showAlert} heading="Try Textils - word counter, character counter, remove extra spaces" mode={mode}/>} />
+      <Route path="/about" element={<About mode={mode} />} />
+      <Route path='/privacy' element={<PrivacyPolicy mode = {mode}/>}></Route>
+      <Route path='/contact' element={<Contact mode = {mode}/>}/>
     </Routes>
     </div>
+    <Footer/>
+    </div>
     </Router>
-    </> 
+    </>
   );
 }
 
